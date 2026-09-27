@@ -1,0 +1,10 @@
+{
+  "python.defaultInterpreterPath": "C:\\Users\\vaibh\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+  "python.analysis.extraPaths": [
+    "C:\\Users\\vaibh\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages",
+    "C:\\Users\\vaibh\\miniconda3\\Lib\\site-packages"
+  ],
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingImports": "none"
+  }
+}

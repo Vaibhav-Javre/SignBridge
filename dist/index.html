@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignBridge — AI-Powered Accessible Communication</title>
+  <meta name="description" content="SignBridge uses computer vision and machine learning to recognize predefined hand gestures in real time and convert them into text and speech.">
+  <meta name="keywords" content="AI, Accessibility, Sign Language, Hand Gestures, MediaPipe, Random Forest, HaGRID, Machine Learning, Assistive Tech">
+  
+  <!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script type="module" crossorigin src="/assets/index-DuEstd-o.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DlrgRVm9.css">
+</head>
+<body>
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#demo" class="skip-to-content">Skip to Live Demo</a>
+
+  <!-- ==================== 1. NAVBAR ==================== -->
+  <header class="navbar-wrapper" id="navbar">
+    <div class="container navbar-inner">
+      <a href="#hero" class="brand-logo" aria-label="SignBridge Home">
+        <div class="logo-icon-wrap">
+          <svg class="logo-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 22C8 16 12 14 16 14C20 14 24 16 28 22" stroke="url(#logo-grad-1)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M7 26C10 21 13 19 16 19C19 19 22 21 25 26" stroke="url(#logo-grad-2)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="16" cy="9" r="4" fill="url(#logo-grad-1)"/>
+            <circle cx="10" cy="13" r="2" fill="#38BDF8"/>
+            <circle cx="22" cy="13" r="2" fill="#38BDF8"/>
+            <defs>
+              <linearGradient id="logo-grad-1" x1="4" y1="9" x2="28" y2="22" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#6366F1"/>
+                <stop offset="1" stop-color="#10B981"/>
+              </linearGradient>
+              <linearGradient id="logo-grad-2" x1="7" y1="19" x2="25" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#818CF8"/>
+                <stop offset="1" stop-color="#34D399"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">SignBridge</span>
+          <span class="brand-sub">AI Accessibility</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links" id="navLinks" aria-label="Primary Navigation">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#demo" class="nav-link">Live Demo</a>
+        <a href="#impact" class="nav-link">Impact (SDG)</a>
+        <a href="#technology" class="nav-link">Technology</a>
+        <a href="#vocabulary" class="nav-link">Gestures</a>
+        <a href="#limitations" class="nav-link">Limitations</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+
+      <!-- Nav CTA -->
+      <div class="nav-actions">
+        <a href="#demo" class="btn btn-primary btn-sm btn-glow">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          Try Live Demo
+        </a>
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <nav class="mobile-nav">
+        <a href="#hero" class="mobile-nav-link">Home</a>
+        <a href="#how-it-works" class="mobile-nav-link">How It Works</a>
+        <a href="#demo" class="mobile-nav-link highlight">Live Demo</a>
+        <a href="#impact" class="mobile-nav-link">Impact (SDG)</a>
+        <a href="#technology" class="mobile-nav-link">Technology</a>
+        <a href="#vocabulary" class="mobile-nav-link">Gestures</a>
+        <a href="#limitations" class="mobile-nav-link">Limitations</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <a href="#demo" class="btn btn-primary btn-block">Try Live Demo</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== 2. HERO SECTION ==================== -->
+    <section class="hero-section" id="hero">
+      <div class="hero-glow-bg"></div>
+      <div class="container hero-container">
+        
+        <div class="hero-content">
+          <div class="hero-badge animate-fade-in">
+            <span class="badge-dot"></span>
+            <span class="badge-text">AI-Powered Accessibility</span>
+          </div>
+
+          <h1 class="hero-title animate-fade-in delay-1">
+            Bridging Communication <br>
+            <span class="gradient-text">Through AI</span>
+          </h1>
+
+          <p class="hero-description animate-fade-in delay-2">
+            SignBridge uses computer vision and machine learning to recognize predefined hand gestures in real time and convert them into text and speech.
+          </p>
+
+          <div class="hero-ctas animate-fade-in delay-3">
+            <a href="#demo" class="btn btn-primary btn-lg btn-glow">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg>
+              Try Live Demo
+            </a>
+            <a href="#technology" class="btn btn-secondary btn-lg">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              Explore Technology
+            </a>
+          </div>
+
+          <div class="hero-stats animate-fade-in delay-4">
+            <div class="stat-pill">
+              <span class="stat-num">19</span>
+              <span class="stat-label">Predefined Classes</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-pill">
+              <span class="stat-num">21</span>
+              <span class="stat-label">Hand Landmarks</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-pill">
+              <span class="stat-num">42</span>
+              <span class="stat-label">Normalized Features</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-pill">
+              <span class="stat-num">Real-Time</span>
+              <span class="stat-label">Text + Speech</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual: AI Landmark Preview Card -->
+        <div class="hero-visual-col animate-fade-in delay-2">
+          <div class="visual-card-glass">
+            
+            <div class="visual-header">
+              <div class="visual-window-dots">
+                <span class="win-dot dot-red"></span>
+                <span class="win-dot dot-yellow"></span>
+                <span class="win-dot dot-green"></span>
+              </div>
+              <div class="visual-header-badge">
+                <span class="pulse-indicator"></span>
+                Vision Pipeline Active
+              </div>
+              <span class="visual-tag-example">(Example Preview)</span>
+            </div>
+
+            <!-- Hand Landmark Simulation Canvas Graphic -->
+            <div class="visual-screen">
+              <svg class="hand-mesh-svg" viewBox="0 0 400 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Bounding Box -->
+                <rect x="75" y="45" width="250" height="280" rx="10" stroke="#10B981" stroke-width="2" stroke-dasharray="6 4" opacity="0.85"/>
+                <!-- Corner accents -->
+                <path d="M75 75 V45 H105" stroke="#34D399" stroke-width="3" fill="none"/>
+                <path d="M295 45 H325 V75" stroke="#34D399" stroke-width="3" fill="none"/>
+                <path d="M75 295 V325 H105" stroke="#34D399" stroke-width="3" fill="none"/>
+                <path d="M295 325 H325 V295" stroke="#34D399" stroke-width="3" fill="none"/>
+                <rect x="75" y="25" width="130" height="20" rx="4" fill="#10B981" opacity="0.9"/>
+                <text x="85" y="39" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600">HAND: CLASS OK</text>
+
+                <!-- Bones (Lines) -->
+                <!-- Wrist to Palm Base -->
+                <line x1="200" y1="300" x2="160" y2="250" stroke="#6366F1" stroke-width="2.5" opacity="0.9"/>
+                <line x1="200" y1="300" x2="185" y2="210" stroke="#6366F1" stroke-width="2.5" opacity="0.9"/>
+                <line x1="200" y1="300" x2="215" y2="210" stroke="#6366F1" stroke-width="2.5" opacity="0.9"/>
+                <line x1="200" y1="300" x2="245" y2="225" stroke="#6366F1" stroke-width="2.5" opacity="0.9"/>
+
+                <!-- Thumb (Circle with Index for OK sign) -->
+                <line x1="160" y1="250" x2="140" y2="220" stroke="#6366F1" stroke-width="2.5"/>
+                <line x1="140" y1="220" x2="145" y2="180" stroke="#6366F1" stroke-width="2.5"/>
+                <line x1="145" y1="180" x2="175" y2="170" stroke="#6366F1" stroke-width="2.5"/>
+
+                <!-- Index finger touching thumb -->
+                <line x1="185" y1="210" x2="180" y2="175" stroke="#6366F1" stroke-width="2.5"/>
+                <line x1="180" y1="175" x2="175" y2="170" stroke="#6366F1" stroke-width="2.5"/>
+
+                <!-- Middle finger extended upward -->
+                <line x1="215" y1="210" x2="215" y2="160" stroke="#6366F1" stroke-width="2.5"/>
+                <line x1="215" y1="160" x2="215" y2="115" stroke="#6366F1" stroke-width="2.5"/>
+                <line x1="215" y1="115" x2="215" y2="70" stroke="#6366F1" stroke-width="2.5"/>
+
+                <!-- Ring finger extended upward -->
+                <line x1="245" y1="225" x2="250" y2="175" stroke="#6366F1" stroke-width="2.5"/>
+                <line x1="250" y1="175" x2="255" y2="130" stroke="#6366F1" stroke-width="2.5"/>
+                <line x1="255" y1="130" x2="260" y2="90" stroke="#6366F1" stroke-width="2.5"/>
+
+                <!-- Pinky finger extended upward -->
+                <line x1="200" y1="300" x2="275" y2="245" stroke="#6366F1" stroke-width="2.5" opacity="0.9"/>
+                <line x1="275" y1="245" x2="285" y2="200" stroke="#6366F1" stroke-width="2.5"/>
+                <line x1="285" y1="200" x2="295" y2="160" stroke="#6366F1" stroke-width="2.5"/>
+                <line x1="295" y1="160" x2="300" y2="120" stroke="#6366F1" stroke-width="2.5"/>
+
+                <!-- Palm transverse connects -->
+                <line x1="185" y1="210" x2="215" y2="210" stroke="#818CF8" stroke-width="2"/>
+                <line x1="215" y1="210" x2="245" y2="225" stroke="#818CF8" stroke-width="2"/>
+                <line x1="245" y1="225" x2="275" y2="245" stroke="#818CF8" stroke-width="2"/>
+
+                <!-- Landmark Points (21 Joints) -->
+                <!-- Wrist (0) -->
+                <circle cx="200" cy="300" r="7" fill="#F59E0B" stroke="#FFFFFF" stroke-width="2"/>
+                <!-- Thumb joints (1-4) -->
+                <circle cx="160" cy="250" r="4.5" fill="#60A5FA"/>
+                <circle cx="140" cy="220" r="4.5" fill="#60A5FA"/>
+                <circle cx="145" cy="180" r="4.5" fill="#60A5FA"/>
+                <circle cx="175" cy="170" r="6" fill="#06B6D4" stroke="#FFFFFF" stroke-width="2"/>
+                <!-- Index joints (5-8) -->
+                <circle cx="185" cy="210" r="4.5" fill="#60A5FA"/>
+                <circle cx="180" cy="175" r="4.5" fill="#60A5FA"/>
+                <!-- Index tip touching thumb -->
+                <circle cx="175" cy="170" r="6" fill="#06B6D4" stroke="#FFFFFF" stroke-width="2"/>
+                <!-- Middle joints (9-12) -->
+                <circle cx="215" cy="210" r="4.5" fill="#60A5FA"/>
+                <circle cx="215" cy="160" r="4.5" fill="#60A5FA"/>
+                <circle cx="215" cy="115" r="4.5" fill="#60A5FA"/>
+                <circle cx="215" cy="70" r="6" fill="#06B6D4" stroke="#FFFFFF" stroke-width="2"/>
+                <!-- Ring joints (13-16) -->
+                <circle cx="245" cy="225" r="4.5" fill="#60A5FA"/>
+                <circle cx="250" cy="175" r="4.5" fill="#60A5FA"/>
+                <circle cx="255" cy="130" r="4.5" fill="#60A5FA"/>
+                <circle cx="260" cy="90" r="6" fill="#06B6D4" stroke="#FFFFFF" stroke-width="2"/>
+                <!-- Pinky joints (17-20) -->
+                <circle cx="275" cy="245" r="4.5" fill="#60A5FA"/>
+                <circle cx="285" cy="200" r="4.5" fill="#60A5FA"/>
+                <circle cx="295" cy="160" r="4.5" fill="#60A5FA"/>
+                <circle cx="300" cy="120" r="6" fill="#06B6D4" stroke="#FFFFFF" stroke-width="2"/>
+              </svg>
+
+              <!-- Futuristic floating telemetry HUD cards -->
+              <div class="hud-card hud-top-left float-anim">
+                <span class="hud-label">Gesture Detected</span>
+                <span class="hud-value hud-accent">"OK"</span>
+              </div>
+
+              <div class="hud-card hud-top-right float-anim delay-1">
+                <span class="hud-label">Confidence</span>
+                <span class="hud-value hud-green">97.4%</span>
+              </div>
+
+              <div class="hud-card hud-bottom-left float-anim delay-2">
+                <span class="hud-label">Output Mode</span>
+                <span class="hud-value">Text + Speech</span>
+              </div>
+
+              <div class="hud-card hud-bottom-right float-anim delay-3">
+                <span class="hud-label">Inference Latency</span>
+                <span class="hud-value hud-mono">24 ms</span>
+              </div>
+            </div>
+
+            <!-- Pipeline Flow Indicator at Bottom of Card -->
+            <div class="visual-pipeline-strip">
+              <span class="step-tag">Camera</span>
+              <span class="arrow-sep">→</span>
+              <span class="step-tag">MediaPipe</span>
+              <span class="arrow-sep">→</span>
+              <span class="step-tag">Random Forest</span>
+              <span class="arrow-sep">→</span>
+              <span class="step-tag highlight">Speech</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 3. PROBLEM SECTION ==================== -->
+    <section class="section problem-section" id="problem">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-badge">The Real-World Challenge</div>
+          <h2 class="section-title">Communication Shouldn't Have Barriers</h2>
+          <p class="section-subtitle max-w-prose">
+            People who communicate through sign language or gestures can face communication difficulties when interacting with people who do not understand those gestures. This can create barriers in education, healthcare, workplaces, public services and everyday interactions.
+          </p>
+        </div>
+
+        <div class="grid grid-4 gap-6 problem-cards-grid">
+          
+          <div class="card problem-card">
+            <div class="card-icon-wrap icon-danger">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                <line x1="9" y1="9" x2="15" y2="15"></line>
+                <line x1="15" y1="9" x2="9" y2="15"></line>
+              </svg>
+            </div>
+            <h3 class="card-title">Communication Gap</h3>
+            <p class="card-desc">
+              The vast majority of the general public cannot understand sign language, leading to frequent misunderstandings and conversational isolation.
+            </p>
+          </div>
+
+          <div class="card problem-card">
+            <div class="card-icon-wrap icon-warning">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h3 class="card-title">Limited Accessibility</h3>
+            <p class="card-desc">
+              Public service desks, health clinics, and educational hubs rarely have continuous assistive infrastructure for gesture-based communication.
+            </p>
+          </div>
+
+          <div class="card problem-card">
+            <div class="card-icon-wrap icon-purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="card-title">Dependence on Intermediaries</h3>
+            <p class="card-desc">
+              Relying on specialized human interpreters is costly, not available 24/7, and restricts privacy in sensitive medical and legal settings.
+            </p>
+          </div>
+
+          <div class="card problem-card">
+            <div class="card-icon-wrap icon-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+              </svg>
+            </div>
+            <h3 class="card-title">Everyday Interaction Barriers</h3>
+            <p class="card-desc">
+              Simple day-to-day interactions—such as ordering food, asking for directions, or retail checkouts—become stressful bottlenecks.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 4. SOLUTION SECTION ==================== -->
+    <section class="section solution-section" id="solution">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-badge badge-emerald">Our Solution</div>
+          <h2 class="section-title">Meet SignBridge</h2>
+          <p class="section-subtitle max-w-prose">
+            SignBridge uses computer vision and machine learning to recognize predefined hand gestures from a camera feed and convert them into readable text and speech.
+          </p>
+        </div>
+
+        <!-- Interactive Animated Pipeline -->
+        <div class="pipeline-container">
+          <div class="pipeline-header-bar">
+            <span class="pipeline-status-dot"></span>
+            <span>End-to-End Architectural Pipeline</span>
+          </div>
+
+          <div class="pipeline-flow" id="pipelineFlow">
+            
+            <div class="pipe-node active" data-step="1">
+              <div class="pipe-node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+              </div>
+              <span class="pipe-node-title">Camera Feed</span>
+              <span class="pipe-node-desc">Real-time frames</span>
+            </div>
+
+            <div class="pipe-connector">
+              <div class="pipe-pulse"></div>
+            </div>
+
+            <div class="pipe-node" data-step="2">
+              <div class="pipe-node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <span class="pipe-node-title">MediaPipe</span>
+              <span class="pipe-node-desc">Hand Landmarker</span>
+            </div>
+
+            <div class="pipe-connector">
+              <div class="pipe-pulse"></div>
+            </div>
+
+            <div class="pipe-node" data-step="3">
+              <div class="pipe-node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <circle cx="6" cy="6" r="2"></circle>
+                  <circle cx="18" cy="6" r="2"></circle>
+                  <circle cx="6" cy="18" r="2"></circle>
+                  <circle cx="18" cy="18" r="2"></circle>
+                </svg>
+              </div>
+              <span class="pipe-node-title">21 Landmarks</span>
+              <span class="pipe-node-desc">Skeletal joints (x, y)</span>
+            </div>
+
+            <div class="pipe-connector">
+              <div class="pipe-pulse"></div>
+            </div>
+
+            <div class="pipe-node" data-step="4">
+              <div class="pipe-node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+              </div>
+              <span class="pipe-node-title">Feature Extraction</span>
+              <span class="pipe-node-desc">42 normalized values</span>
+            </div>
+
+            <div class="pipe-connector">
+              <div class="pipe-pulse"></div>
+            </div>
+
+            <div class="pipe-node" data-step="5">
+              <div class="pipe-node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+              </div>
+              <span class="pipe-node-title">Random Forest</span>
+              <span class="pipe-node-desc">19 HaGRID classes</span>
+            </div>
+
+            <div class="pipe-connector">
+              <div class="pipe-pulse"></div>
+            </div>
+
+            <div class="pipe-node" data-step="6">
+              <div class="pipe-node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                  <line x1="9" y1="20" x2="15" y2="20"></line>
+                  <line x1="12" y1="4" x2="12" y2="20"></line>
+                </svg>
+              </div>
+              <span class="pipe-node-title">Readable Text</span>
+              <span class="pipe-node-desc">Display transcription</span>
+            </div>
+
+            <div class="pipe-connector">
+              <div class="pipe-pulse"></div>
+            </div>
+
+            <div class="pipe-node highlight" data-step="7">
+              <div class="pipe-node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+              </div>
+              <span class="pipe-node-title">Text-to-Speech</span>
+              <span class="pipe-node-desc">Audible vocalization</span>
+            </div>
+
+          </div>
+
+          <div class="pipeline-footnote">
+            <span class="fn-icon">ℹ️</span>
+            <span>
+              <strong>Crucial Architecture Detail:</strong> Input features are strictly normalized relative to wrist landmark 0 with scale-invariance, preventing distance or camera sensor variations from degrading classification confidence.
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 5. LIVE DEMO SECTION ==================== -->
+    <section class="section demo-section" id="demo">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-badge badge-glow">Core Evaluator Showcase</div>
+          <h2 class="section-title">Live Recognition Studio</h2>
+          <p class="section-subtitle max-w-prose">
+            Experience real-time hand landmark tracking and gesture classification. Connect your local Python ML backend or run the high-fidelity simulated Demo Mode.
+          </p>
+        </div>
+
+        <!-- Studio Control Bar -->
+        <div class="demo-controls-bar">
+          <div class="mode-selector">
+            <span class="mode-label">Operation Mode:</span>
+            <div class="btn-group-toggle" role="radiogroup" aria-label="Operating Mode">
+              <button type="button" class="toggle-btn active" id="btnModeDemo" aria-checked="true">
+                <span class="toggle-dot dot-demo"></span>
+                Demo Mode (Simulation)
+              </button>
+              <button type="button" class="toggle-btn" id="btnModeBackend" aria-checked="false">
+                <span class="toggle-dot dot-backend"></span>
+                Live Python ML Backend
+              </button>
+            </div>
+          </div>
+
+          <div class="backend-settings" id="backendSettingsArea">
+            <div class="endpoint-input-wrap">
+              <label for="backendUrlInput" class="visually-hidden">Backend API URL</label>
+              <span class="endpoint-prefix">API:</span>
+              <input type="text" id="backendUrlInput" class="endpoint-input" value="http://localhost:5000" placeholder="http://localhost:5000">
+              <button type="button" id="btnTestBackend" class="btn btn-xs btn-outline">Test Ping</button>
+            </div>
+            <div class="backend-status-pill" id="backendStatusPill">
+              <span class="status-indicator-dot idle"></span>
+              <span id="backendStatusText">Backend Not Tested</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mode Notification Banner -->
+        <div class="mode-alert-banner" id="modeBanner">
+          <div class="alert-content">
+            <span class="alert-badge" id="alertModeBadge">DEMO MODE ACTIVE</span>
+            <span class="alert-text" id="alertModeText">
+              Currently using sample gesture data and simulated landmarks for presentation. Connect local Python backend with <code>signbridge_random_forest.pkl</code> for live ML inference.
+            </span>
+          </div>
+          <button type="button" class="alert-dismiss-btn" id="alertHelpBtn" aria-label="Toggle Backend Instructions">
+            How to Connect Backend? ▾
+          </button>
+        </div>
+
+        <!-- Collapsible Backend Setup Instructions -->
+        <div class="backend-guide-drawer" id="backendGuideDrawer" hidden>
+          <div class="guide-box">
+            <h4>Quick Python ML Backend Setup</h4>
+            <ol>
+              <li>Place <code>signbridge_random_forest.pkl</code> and <code>hand_landmarker.task</code> in the <code>models/</code> folder.</li>
+              <li>Install dependencies: <code>pip install -r backend/requirements.txt</code></li>
+              <li>Run the Flask inference server: <code>python backend/app.py</code> (runs on port 5000).</li>
+              <li>Click <strong>"Live Python ML Backend"</strong> above and hit <strong>"Test Ping"</strong>!</li>
+            </ol>
+            <div class="guide-api-schema">
+              <code>POST http://localhost:5000/api/predict</code> &bull; Payload: <code>{"image": "data:image/jpeg;base64,..."}</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Recognition Dashboard Grid -->
+        <div class="demo-dashboard-grid">
+          
+          <!-- LEFT: Camera Preview Area -->
+          <div class="camera-card">
+            
+            <div class="camera-card-topbar">
+              <div class="stream-info">
+                <span class="live-dot" id="streamLiveDot"></span>
+                <span class="stream-title" id="streamTitle">CAMERA STREAM</span>
+              </div>
+              <div class="stream-meta">
+                <span class="meta-tag fps-tag" id="fpsDisplay">0 FPS</span>
+                <span class="meta-tag status-tag" id="cameraStatusPill">Camera Idle</span>
+              </div>
+            </div>
+
+            <!-- Video & Canvas Overlay Wrapper -->
+            <div class="camera-viewport-wrap" id="cameraViewport">
+              
+              <!-- Video Element (Hidden from display directly, rendered underneath or mirrored) -->
+              <video id="webcamVideo" autoplay playsinline muted></video>
+              
+              <!-- Canvas for Landmarks, Bounding Box and Mesh -->
+              <canvas id="landmarkCanvas"></canvas>
+
+              <!-- Camera Idle / Permission / Error Overlay -->
+              <div class="camera-placeholder" id="cameraPlaceholder">
+                <div class="placeholder-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                    <circle cx="12" cy="13" r="4"></circle>
+                  </svg>
+                </div>
+                <h3 class="placeholder-title" id="placeholderTitle">Camera Is Disconnected</h3>
+                <p class="placeholder-desc" id="placeholderDesc">
+                  Click "Start Camera" to enable real-time hand gesture tracking via your webcam.
+                </p>
+                <div class="placeholder-actions">
+                  <button type="button" id="btnStartCameraCenter" class="btn btn-primary btn-glow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    Start Camera
+                  </button>
+                </div>
+              </div>
+
+              <!-- Live HUD Telemetry Overlay -->
+              <div class="camera-hud-overlay" id="cameraHud" style="display: none;">
+                <div class="hud-item hud-left">
+                  <span class="hud-tiny-label">TRACKING:</span>
+                  <span class="hud-tiny-value" id="hudTrackingStatus">1 Hand (21 Joints)</span>
+                </div>
+                <div class="hud-item hud-right">
+                  <span class="hud-tiny-label">INFERENCE:</span>
+                  <span class="hud-tiny-value" id="hudLatency">~22 ms</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Camera Controls Bottom Bar -->
+            <div class="camera-card-bottombar">
+              <div class="btn-cluster">
+                <button type="button" id="btnStartCamera" class="btn btn-primary btn-sm">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                  Start Camera
+                </button>
+                <button type="button" id="btnStopCamera" class="btn btn-secondary btn-sm" disabled>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                    <rect x="6" y="6" width="12" height="12"></rect>
+                  </svg>
+                  Stop Camera
+                </button>
+              </div>
+
+              <div class="camera-mode-tag">
+                <span class="source-label">Source:</span>
+                <span class="source-name" id="inferenceSourceTag">Demo Mode (Simulated AI)</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: Recognition Panel -->
+          <div class="recognition-card">
+            
+            <div class="rec-header">
+              <h3 class="rec-title">Recognition Intelligence</h3>
+              <div class="speech-status-pill" id="speechStatusPill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pill-icon">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+                <span id="speechStatusText">Ready to speak</span>
+              </div>
+            </div>
+
+            <!-- Primary Recognized Gesture Display -->
+            <div class="gesture-result-box">
+              <div class="gesture-icon-badge" id="recGestureIcon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="4"></circle><path d="M14 6v8"></path><path d="M17 9v5"></path><path d="M20 11v3"></path><path d="M8 12v9"></path></svg>
+              </div>
+              <div class="gesture-details">
+                <span class="field-label">DETECTED GESTURE</span>
+                <h4 class="gesture-name" id="recGestureName">OK</h4>
+                <span class="gesture-category-tag" id="recGestureCategory">HaGRID Predefined Class</span>
+              </div>
+            </div>
+
+            <!-- Confidence Bar & Score -->
+            <div class="confidence-section">
+              <div class="confidence-header">
+                <span class="conf-label">Model Confidence</span>
+                <span class="conf-percentage" id="recConfidenceValue">97.4%</span>
+              </div>
+              <div class="confidence-bar-track">
+                <div class="confidence-bar-fill" id="recConfidenceBar" style="width: 97.4%;"></div>
+              </div>
+              <div class="confidence-disclaimer" id="confDisclaimer">
+                * Note: Model confidence is verified by Random Forest probabilities.
+              </div>
+            </div>
+
+            <!-- Recognized Text Output Box -->
+            <div class="rec-output-box">
+              <div class="output-header">
+                <span class="field-label">RECOGNIZED TEXT BUFFER</span>
+                <button type="button" id="btnClearText" class="btn-clear" title="Clear text buffer">Clear</button>
+              </div>
+              <div class="text-display-screen" id="recTextBox" tabindex="0" role="region" aria-label="Recognized text buffer">
+                OK
+              </div>
+            </div>
+
+            <!-- Action Controls: Speak, Auto-Speak, Repeat Option, Language Select -->
+            <div class="rec-actions-toolbar">
+              <button type="button" id="btnSpeak" class="btn btn-primary btn-glow" title="Pronounce or Repeat current detected gesture">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+                Pronounce / Repeat
+              </button>
+
+              <label class="auto-speak-toggle" for="autoSpeakCheckbox" title="Automatically pronounce gesture when detected">
+                <input type="checkbox" id="autoSpeakCheckbox" checked>
+                <span class="toggle-slider"></span>
+                <span class="toggle-text">Auto-Pronounce</span>
+              </label>
+
+              <label class="auto-speak-toggle" for="repeatSpeakCheckbox" title="Repeat pronunciation periodically while holding the same gesture">
+                <input type="checkbox" id="repeatSpeakCheckbox">
+                <span class="toggle-slider"></span>
+                <span class="toggle-text">Repeat Option</span>
+              </label>
+
+              <!-- Indian English & Marathi Language Selector -->
+              <div class="lang-select-wrap" title="Select Voice & Output Language">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="lang-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                <select id="voiceLanguageSelect" class="lang-dropdown" aria-label="Select Voice Language">
+                  <option value="en-IN" selected>🇮🇳 English (India)</option>
+                  <option value="mr-IN">🇮🇳 मराठी (Marathi)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Supported Gestures Quick Chips -->
+            <div class="supported-chips-section">
+              <div class="chips-header">
+                <span class="field-label">TEST PREDEFINED GESTURES (19 CLASSES):</span>
+                <span class="chips-hint">Click any chip to trigger preview</span>
+              </div>
+              <div class="chips-container" id="quickChipsContainer">
+                <!-- Dynamically populated from GESTURE_CLASSES -->
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 6. HOW IT WORKS ==================== -->
+    <section class="section how-it-works-section" id="how-it-works">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-badge">Methodology & Logic</div>
+          <h2 class="section-title">How SignBridge Works</h2>
+          <p class="section-subtitle max-w-prose">
+            A seamless seven-step computational pipeline converting raw camera photon signals into structured linguistic audio.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+            </div>
+            <h3 class="step-title">Camera Captures Hand</h3>
+            <p class="step-desc">
+              The webcam stream acquires real-time RGB video frames at standard web resolutions without requiring proprietary hardware or depth sensors.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </div>
+            <h3 class="step-title">MediaPipe Detects Hand</h3>
+            <p class="step-desc">
+              Google MediaPipe Hand Landmarker neural detector scans the frame to isolate palm boundaries and computes the region of interest.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M12 2v3m0 14v3M2 12h3m14 0h3"></path>
+              </svg>
+            </div>
+            <h3 class="step-title">21 Landmarks Extracted</h3>
+            <p class="step-desc">
+              Extracts high-precision 2.5D coordinates for 21 anatomical joints across wrist, thumb, index, middle, ring, and pinky fingers.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="4" y1="21" x2="4" y2="14"></line>
+                <line x1="4" y1="10" x2="4" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12" y2="3"></line>
+                <line x1="20" y1="21" x2="20" y2="16"></line>
+                <line x1="20" y1="12" x2="20" y2="3"></line>
+              </svg>
+            </div>
+            <h3 class="step-title">Normalization to 42 Features</h3>
+            <p class="step-desc">
+              Joint coordinates are translated relative to wrist landmark 0 and scaled by maximum joint distance, yielding 42 invariant numerical features.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">05</div>
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+              </svg>
+            </div>
+            <h3 class="step-title">Random Forest Classification</h3>
+            <p class="step-desc">
+              The pre-trained ensemble model evaluates decision trees on the 42 features to yield the predicted gesture class and confidence probability.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">06</div>
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+            <h3 class="step-title">Conversion into Text</h3>
+            <p class="step-desc">
+              Validated classifications are parsed into readable transcriptions and appended to an interactive communication log for conversational clarity.
+            </p>
+          </div>
+
+          <div class="step-card step-card-featured">
+            <div class="step-number">07</div>
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+            </div>
+            <h3 class="step-title">Speech Synthesis (Audio Out)</h3>
+            <p class="step-desc">
+              The synthesized text is vocalized via the browser's native Web Speech API with debounce filtering to prevent jarring repetition.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 7. TECHNOLOGY SECTION ==================== -->
+    <section class="section tech-section" id="technology">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-badge badge-blue">Engineering Stack</div>
+          <h2 class="section-title">Built With Robust AI Technologies</h2>
+          <p class="section-subtitle max-w-prose">
+            A high-efficiency modular stack engineered for low latency, reproducible machine learning, and universal cross-device accessibility.
+          </p>
+        </div>
+
+        <div class="grid grid-4 gap-6 tech-grid">
+          
+          <div class="tech-card">
+            <div class="tech-icon-box">
+              <span class="tech-badge">Language</span>
+            </div>
+            <h3 class="tech-name">Python 3.10+</h3>
+            <p class="tech-desc">Core programming language driving model training, data preprocessing, and API routing services.</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon-box">
+              <span class="tech-badge">Vision</span>
+            </div>
+            <h3 class="tech-name">OpenCV</h3>
+            <p class="tech-desc">Handles real-time camera frames, color conversion, image transformations, and bounding box computation.</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon-box">
+              <span class="tech-badge">Landmarks</span>
+            </div>
+            <h3 class="tech-name">MediaPipe</h3>
+            <p class="tech-desc">Detects and tracks 21 hand landmarks per frame with sub-pixel precision and high inference speed.</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon-box">
+              <span class="tech-badge">ML Toolkit</span>
+            </div>
+            <h3 class="tech-name">Scikit-learn</h3>
+            <p class="tech-desc">Provides the machine learning evaluation pipeline, hyperparameter tuning, and cross-validation tools.</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon-box">
+              <span class="tech-badge">Classifier</span>
+            </div>
+            <h3 class="tech-name">Random Forest</h3>
+            <p class="tech-desc">Classifies normalized hand landmark features into predefined gesture classes with high probabilistic stability.</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon-box">
+              <span class="tech-badge">Numerics</span>
+            </div>
+            <h3 class="tech-name">NumPy</h3>
+            <p class="tech-desc">Vectorized array operations for Euclidean distance calculations, wrist translation, and coordinate scaling.</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon-box">
+              <span class="tech-badge">Serialization</span>
+            </div>
+            <h3 class="tech-name">Joblib</h3>
+            <p class="tech-desc">High-speed model serialization and deserialization for loading <code>signbridge_random_forest.pkl</code> seamlessly.</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon-box">
+              <span class="tech-badge">Interface</span>
+            </div>
+            <h3 class="tech-name">Modern Web Client</h3>
+            <p class="tech-desc">Vanilla CSS & ES6+ JavaScript client with Web Speech API audio synthesis and Canvas landmark rendering.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 8. SUPPORTED GESTURES (VOCABULARY) ==================== -->
+    <section class="section vocabulary-section" id="vocabulary">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-badge">Vocabulary Gallery</div>
+          <h2 class="section-title">Current Gesture Vocabulary</h2>
+          <p class="section-subtitle max-w-prose">
+            Predefined gestures currently supported by the prototype.
+          </p>
+        </div>
+
+        <!-- Filter and Search Bar -->
+        <div class="vocab-toolbar">
+          <div class="search-input-wrap">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="gestureSearchInput" placeholder="Search gestures (e.g., ok, peace, call, three)..." aria-label="Search gesture vocabulary">
+          </div>
+
+          <div class="category-filter-pills" id="categoryFilterContainer">
+            <!-- Dynamically populated from CATEGORIES -->
+          </div>
+        </div>
+
+        <!-- Gesture Cards Gallery Grid -->
+        <div class="grid grid-4 gap-6 gesture-gallery-grid" id="gestureGallery">
+          <!-- Dynamically populated from GESTURE_CLASSES -->
+        </div>
+
+        <!-- Crucial Model Disclaimer Box -->
+        <div class="disclaimer-callout">
+          <div class="callout-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <div class="callout-content">
+            <h4 class="callout-title">Important Prototype Notice & Dataset Provenance</h4>
+            <p class="callout-text">
+              SignBridge currently recognizes a predefined set of hand gestures using a machine-learning model trained on the <strong>HaGRID</strong> (Hand Gesture Recognition Image Dataset). 
+              <strong>It does NOT claim to perform complete Indian Sign Language (ISL) translation.</strong> Rather, it serves as an AI accessibility proof-of-concept designed to be extended toward larger formal sign language vocabularies.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 9. REAL-WORLD IMPACT / SDG SECTION ==================== -->
+    <section class="section impact-section" id="impact">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-badge badge-emerald">UN Sustainable Development Goals</div>
+          <h2 class="section-title">Technology With Social Impact</h2>
+          <p class="section-subtitle max-w-prose">
+            SignBridge aligns with global inclusion frameworks to lower social, educational, and economic communication disparities.
+          </p>
+        </div>
+
+        <div class="sdg-grid">
+          
+          <!-- Primary SDG: SDG 10 (Reduced Inequalities) -->
+          <div class="sdg-card primary-sdg-card">
+            <div class="sdg-banner">
+              <span class="sdg-pill-primary">PRIMARY SDG TARGET</span>
+              <span class="sdg-num-tag">SDG 10</span>
+            </div>
+            <div class="sdg-body">
+              <div class="sdg-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 3v18"></path>
+                  <rect x="4" y="8" width="16" height="4" rx="1"></rect>
+                  <rect x="6" y="14" width="12" height="4" rx="1"></rect>
+                </svg>
+              </div>
+              <h3 class="sdg-title">SDG 10 — Reduced Inequalities</h3>
+              <p class="sdg-desc">
+                SignBridge aims to reduce communication barriers by making predefined hand gestures understandable to people who may not know sign language. By facilitating real-time bidirectional understanding, assistive AI can empower non-verbal individuals with independent communication agency.
+              </p>
+              <div class="sdg-metrics">
+                <div class="sdg-metric-item">
+                  <span class="metric-val">Inclusive</span>
+                  <span class="metric-lbl">Autonomous Communication</span>
+                </div>
+                <div class="sdg-metric-item">
+                  <span class="metric-val">Zero-Cost</span>
+                  <span class="metric-lbl">Accessible Web Software</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary SDG: SDG 4 -->
+          <div class="sdg-card secondary-sdg-card">
+            <div class="sdg-banner">
+              <span class="sdg-pill-secondary">SUPPORTING GOAL</span>
+              <span class="sdg-num-tag">SDG 4</span>
+            </div>
+            <div class="sdg-body">
+              <div class="sdg-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+              </div>
+              <h3 class="sdg-title">SDG 4 — Quality Education</h3>
+              <p class="sdg-desc">
+                Supporting more accessible communication in educational environments by providing automated speech feedback in classrooms, libraries, and peer group settings.
+              </p>
+            </div>
+          </div>
+
+          <!-- Secondary SDG: SDG 8 -->
+          <div class="sdg-card secondary-sdg-card">
+            <div class="sdg-banner">
+              <span class="sdg-pill-secondary">SUPPORTING GOAL</span>
+              <span class="sdg-num-tag">SDG 8</span>
+            </div>
+            <div class="sdg-body">
+              <div class="sdg-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <h3 class="sdg-title">SDG 8 — Decent Work & Economic Growth</h3>
+              <p class="sdg-desc">
+                Potentially supporting communication accessibility in workplaces and public-service environments to ensure fair employment inclusion without communication friction.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 10. USE CASES ==================== -->
+    <section class="section use-cases-section" id="use-cases">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-badge">Practical Scenarios</div>
+          <h2 class="section-title">Potential Applications</h2>
+          <p class="section-subtitle max-w-prose">
+            Exploration of real-world scenarios where gesture-to-text and gesture-to-speech assistive tools can support human-to-human interaction.
+          </p>
+        </div>
+
+        <div class="grid grid-3 gap-6 use-cases-grid">
+          
+          <div class="card use-case-card">
+            <div class="uc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <h3 class="card-title">Education</h3>
+            <p class="card-desc">
+              Can support students with speech or hearing impairments during teacher interactions, presentations, and interactive classroom learning.
+            </p>
+            <span class="uc-potential-tag">Potential Application</span>
+          </div>
+
+          <div class="card use-case-card">
+            <div class="uc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+              </svg>
+            </div>
+            <h3 class="card-title">Healthcare</h3>
+            <p class="card-desc">
+              Can assist nurses, doctors, and triage staff in understanding immediate patient symptoms and distress signals without waiting for an interpreter.
+            </p>
+            <span class="uc-potential-tag">Potential Application</span>
+          </div>
+
+          <div class="card use-case-card">
+            <div class="uc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4"></path>
+              </svg>
+            </div>
+            <h3 class="card-title">Government Services</h3>
+            <p class="card-desc">
+              Can enable civic offices, identity verification counters, and postal centers to provide accessible service to citizens with communication difficulties.
+            </p>
+            <span class="uc-potential-tag">Potential Application</span>
+          </div>
+
+          <div class="card use-case-card">
+            <div class="uc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <h3 class="card-title">Workplaces</h3>
+            <p class="card-desc">
+              Can assist colleagues and project teams in daily standup collaboration, cross-departmental coordination, and workplace onboarding.
+            </p>
+            <span class="uc-potential-tag">Potential Application</span>
+          </div>
+
+          <div class="card use-case-card">
+            <div class="uc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+            </div>
+            <h3 class="card-title">Customer Service</h3>
+            <p class="card-desc">
+              Can facilitate quick retail transactions, restaurant orders, and checkout interactions without communication anxiety.
+            </p>
+            <span class="uc-potential-tag">Potential Application</span>
+          </div>
+
+          <div class="card use-case-card">
+            <div class="uc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <h3 class="card-title">Public Information Desks</h3>
+            <p class="card-desc">
+              Can be integrated into airport kiosks, railway transit terminals, and tourist centers for automated query navigation.
+            </p>
+            <span class="uc-potential-tag">Potential Application</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 11. LIMITATIONS & ROADMAP ==================== -->
+    <section class="section limitations-section" id="limitations">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-badge badge-warning">Transparency & Vision</div>
+          <h2 class="section-title">Limitations & Future Roadmap</h2>
+          <p class="section-subtitle max-w-prose">
+            Honest engineering transparently acknowledges prototype boundaries while charting a clear evolutionary trajectory toward continuous sign language recognition.
+          </p>
+        </div>
+
+        <div class="limitations-roadmap-grid">
+          
+          <!-- Current Limitations -->
+          <div class="lim-road-card card-limitations">
+            <div class="card-top-tag tag-amber">CURRENT BOUNDARIES</div>
+            <h3 class="lim-title">Current Limitations</h3>
+            <ul class="lim-list">
+              <li>
+                <strong>Predefined Gesture Vocabulary:</strong> Currently restricted to 19 discrete gesture classes trained from the HaGRID dataset.
+              </li>
+              <li>
+                <strong>One-Hand Recognition:</strong> Pipeline extracts landmarks for a single dominant hand, excluding two-handed compound signs.
+              </li>
+              <li>
+                <strong>Not Continuous Sign Language Translation:</strong> Does not parse syntactic sign language grammar, facial expressions, or complex sentence structures.
+              </li>
+              <li>
+                <strong>Environmental Dependencies:</strong> In extreme low-light environments or against busy cluttered backgrounds, landmark detection jitter can occur.
+              </li>
+              <li>
+                <strong>Generic Hand Gestures:</strong> Trained on standard computer-vision gesture datasets rather than a fully verified Indian Sign Language (ISL) corpus.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Future Roadmap -->
+          <div class="lim-road-card card-roadmap">
+            <div class="card-top-tag tag-cyan">FUTURE ROADMAP</div>
+            <h3 class="lim-title">Future Expansion Roadmap</h3>
+            <div class="roadmap-items-grid">
+              
+              <div class="rm-item">
+                <span class="rm-bullet">01</span>
+                <div>
+                  <strong>Larger Sign Language Vocabulary</strong>
+                  <p>Expanding the classifier to recognize hundreds of regional symbols.</p>
+                </div>
+              </div>
+
+              <div class="rm-item">
+                <span class="rm-bullet">02</span>
+                <div>
+                  <strong>Indian Sign Language (ISL) Datasets</strong>
+                  <p>Incorporating verified ISL corpora with regional dialect variations.</p>
+                </div>
+              </div>
+
+              <div class="rm-item">
+                <span class="rm-bullet">03</span>
+                <div>
+                  <strong>Two-Hand Gesture Recognition</strong>
+                  <p>Multi-hand landmarker tracking (42 landmarks) for compound signs.</p>
+                </div>
+              </div>
+
+              <div class="rm-item">
+                <span class="rm-bullet">04</span>
+                <div>
+                  <strong>Continuous Sentence Recognition</strong>
+                  <p>LSTM or Spatial-Temporal Graph Transformers for temporal motion.</p>
+                </div>
+              </div>
+
+              <div class="rm-item">
+                <span class="rm-bullet">05</span>
+                <div>
+                  <strong>Multilingual Speech Output</strong>
+                  <p>Real-time vocalization across Hindi, Tamil, Telugu, and English.</p>
+                </div>
+              </div>
+
+              <div class="rm-item">
+                <span class="rm-bullet">06</span>
+                <div>
+                  <strong>Edge AI & Mobile Deployment</strong>
+                  <p>ONNX / TensorFlow Lite deployment for on-device smartphone inference.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 12. ABOUT PROJECT ==================== -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        
+        <div class="about-card-glass">
+          <div class="about-header">
+            <div class="section-badge">Project Mission</div>
+            <h2 class="about-title">Built as an AI Accessibility Project</h2>
+          </div>
+          
+          <div class="about-body">
+            <p class="about-paragraph">
+              SignBridge was developed to explore how lightweight computer vision models and machine learning pipelines can be combined to lower accessibility barriers. Rather than requiring bulky wearable data-gloves or cloud supercomputers, SignBridge proves that standard webcams and accessible algorithms can empower everyday assistive communication.
+            </p>
+
+            <div class="about-meta-grid">
+              <div class="meta-item">
+                <span class="meta-label">Core Mission</span>
+                <span class="meta-val">Inclusive & Universal Communication</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Dataset Provenance</span>
+                <span class="meta-val">HaGRID (Hand Gesture Recognition Image Dataset)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Classifier Type</span>
+                <span class="meta-val">Scikit-learn Random Forest (42 Features)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Vision Engine</span>
+                <span class="meta-val">Google MediaPipe Hand Landmarker</span>
+              </div>
+            </div>
+
+            <div class="project-team-strip">
+              <div class="team-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pill-icon">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                AI Accessibility Proof of Concept
+              </div>
+              <div class="hackathon-tag">Hackathon & Academic Demonstration Prototype</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 13. FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <div class="footer-brand-col">
+        <a href="#hero" class="brand-logo footer-logo">
+          <div class="logo-icon-wrap">
+            <svg class="logo-svg" viewBox="0 0 32 32" fill="none">
+              <path d="M4 22C8 16 12 14 16 14C20 14 24 16 28 22" stroke="#6366F1" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="16" cy="9" r="4" fill="#10B981"/>
+            </svg>
+          </div>
+          <span class="brand-name">SignBridge</span>
+        </a>
+        <p class="footer-tagline">"Bridging Communication Through AI"</p>
+        <p class="footer-subtagline">Making communication more accessible, one gesture at a time.</p>
+        <span class="prototype-badge">AI Accessibility Prototype</span>
+      </div>
+
+      <div class="footer-links-col">
+        <h4 class="footer-heading">Navigation</h4>
+        <ul class="footer-nav">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#demo">Live Demo</a></li>
+          <li><a href="#impact">SDG Impact</a></li>
+          <li><a href="#technology">Technology</a></li>
+          <li><a href="#vocabulary">Current Gestures</a></li>
+          <li><a href="#limitations">Limitations & Roadmap</a></li>
+          <li><a href="#about">About Project</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4 class="footer-heading">Architecture</h4>
+        <ul class="footer-nav">
+          <li><span>MediaPipe 21 Landmarks</span></li>
+          <li><span>Random Forest (19 Classes)</span></li>
+          <li><span>HaGRID Dataset Training</span></li>
+          <li><span>Flask REST API Layer</span></li>
+          <li><span>Web Speech Audio Output</span></li>
+        </ul>
+      </div>
+
+      <div class="footer-cta-col">
+        <h4 class="footer-heading">Open Source & Code</h4>
+        <p class="footer-code-desc">Explore the codebase, backend inference server, and model weights.</p>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+          View on GitHub
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 SignBridge Project. Built with AI for accessible human interaction.</p>
+        <p class="footer-disclaimer-note">
+          Notice: Machine learning proof-of-concept trained on HaGRID dataset. Not continuous Indian Sign Language.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
